@@ -13,6 +13,7 @@ RUN export DEBIAN_FRONTEND=noninteractive && \
         zip \
         zlib1g-dev \
         locales \
+        gettext-base \
         && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*

@@ -1,0 +1,7 @@
+version: '3'
+services:
+  py38:
+    image: "mintproject/python:3.8"
+    build:
+      context: .
+      dockerfile: Dockerfile

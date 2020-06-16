@@ -1,0 +1,7 @@
+version: '3'
+services:
+  conda:
+    image: "mintproject/conda:4.7.12"
+    build:
+      context: .
+      dockerfile: Dockerfile

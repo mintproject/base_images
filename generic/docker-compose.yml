@@ -1,0 +1,7 @@
+version: '3'
+services:
+  generic:
+    image: "mintproject/generic:latest"
+    build:
+      context: .
+      dockerfile: Dockerfile
