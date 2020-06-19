@@ -1,12 +1,14 @@
-FROM python:3.8-buster
-
+FROM openjdk:8-jdk-buster
 RUN export DEBIAN_FRONTEND=noninteractive && \
     apt-get update && \
     apt-get upgrade -y --allow-unauthenticated && \
     apt-get update && \
     apt-get install -y --allow-unauthenticated \
         git \
+        python3 \
+        python3-pip \
         libgit2-dev \
+        software-properties-common \
         unzip \
         vim \
         wget \
@@ -17,8 +19,9 @@ RUN export DEBIAN_FRONTEND=noninteractive && \
         && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
-RUN pip install -U pip
-RUN pip install reprozip
+
+RUN pip3 install -U pip
+RUN pip3 install reprozip
 RUN sed -i -e 's/# en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen && \
     locale-gen
 ENV LANG en_US.UTF-8

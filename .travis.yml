@@ -14,12 +14,10 @@ before_install:
   -m` > docker-compose
 - chmod +x docker-compose
 - sudo mv docker-compose /usr/local/bin
-- docker build -t mint_dt .
-- docker tag mint_dt mintproject/mint_dt:latest
-- docker push mintproject/mint_dt:latest
+- bash build.sh
 deploy:
   provider: script
-  script: bash .docker-push.sh $TRAVIS_TAG
+  script: bash build.sh
   on:
     tags: true
     all_branches: true

@@ -3,5 +3,7 @@ services:
   generic:
     image: "mintproject/generic:latest"
     build:
+      args:
+      - CACHEBUST=${CACHEBUST}
       context: .
       dockerfile: Dockerfile
