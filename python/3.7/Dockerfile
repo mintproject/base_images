@@ -25,5 +25,4 @@ ENV LANG en_US.UTF-8
 ENV LANGUAGE en_US:en
 ENV LC_ALL en_US.UTF-8
 
-ARG CACHEBUST=1
 RUN pip install git+https://github.com/mintproject/mic.git@develop

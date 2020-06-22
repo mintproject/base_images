@@ -2,6 +2,8 @@ version: '3'
 services:
   py37:
     image: "mintproject/python:3.7"
+    env_file:
+      - ./.env
     build:
       context: .
       dockerfile: Dockerfile
