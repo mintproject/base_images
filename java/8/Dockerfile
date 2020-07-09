@@ -29,4 +29,4 @@ ENV LANGUAGE en_US:en
 ENV LC_ALL en_US.UTF-8
 
 ARG CACHEBUST=1
-RUN pip install mic==1.0.1
+RUN pip install mic==1.1.1
