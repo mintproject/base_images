@@ -19,13 +19,18 @@ RUN export DEBIAN_FRONTEND=noninteractive && \
         && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
-RUN pip3 install -U pip
-RUN pip3 install reprozip
 RUN sed -i -e 's/# en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen && \
     locale-gen
 ENV LANG en_US.UTF-8
 ENV LANGUAGE en_US:en
 ENV LC_ALL en_US.UTF-8
 
-ARG CACHEBUST=1
-RUN pip install mic
+RUN export DEBIAN_FRONTEND=noninteractive && \
+     apt-get update && \
+     apt-get install -y --allow-unauthenticated \
+         sudo \
+         && \
+     apt-get clean && \
+     rm -rf /var/lib/apt/lists/* && \
+     echo "mic ALL=(root) NOPASSWD:ALL" > /etc/sudoers.d/user && \
+     chmod 0440 /etc/sudoers.d/user
